@@ -32,7 +32,8 @@
 
 - (void)lanuchScannerAction:(id)sender
 {
-    NSArray *types = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeInterleaved2of5Code, AVMetadataObjectTypeITF14Code, AVMetadataObjectTypeDataMatrixCode];
+    NSArray<NSString *> *types = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeInterleaved2of5Code, AVMetadataObjectTypeITF14Code, AVMetadataObjectTypeDataMatrixCode];
+    
     DTBarcodeScannerController *scanner = [DTBarcodeScannerController barcodeScannerWithMetadataObjectTypes:types];
     [scanner setDelegate:self];
     
@@ -41,9 +42,21 @@
 
 #pragma mark - DTBarcodeScannerControllerDelegate
 
-- (void)barcodeScanner:(DTBarcodeScannerController *)barcodeScanner didScanedMetadataObjects:(NSArray *)metadataObjects
+- (void)barcodeScanner:(DTBarcodeScannerController *)barcodeScanner didScanedMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects
 {
+    AVMetadataMachineReadableCodeObject *codeObject = metadataObjects.firstObject;
+    NSString *readedString = codeObject.stringValue;
     
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleCancel handler:nil];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Result" message:readedString preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:action];
+    
+    void (^completionBlock) (void) = ^{
+        [self presentViewController:alertController animated:YES completion:nil];
+    };
+    
+    [barcodeScanner dismissViewControllerAnimated:YES completion:completionBlock];
 }
 
 - (void)barcodeScannerDidCancel:(DTBarcodeScannerController *)barcodeScanner
