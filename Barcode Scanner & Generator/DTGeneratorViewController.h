@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DTGeneratorViewController.h
 //  Barcode Scanner & Generator
 //
 //  Created by Darktt on 15/07/02.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DTGeneratorViewController : UIViewController
 
 @end
-

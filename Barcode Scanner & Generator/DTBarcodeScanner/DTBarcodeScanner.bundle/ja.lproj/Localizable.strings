@@ -1,0 +1,7 @@
+"Cancel" = "キャンセル";
+
+// Alert
+"Error" = "エラー";
+"I do not have permission to use Camera,\nplease change privacy settings" = "私はカメラを使用する権限がありません、\nプライバシー設定を変更してください。";
+"Setting" = "設定";
+"Dismiss" = "閉じる";

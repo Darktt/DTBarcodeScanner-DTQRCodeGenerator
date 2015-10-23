@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5535C21F1B456E36006917BB /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5535C21E1B456E36006917BB /* Launch Screen.xib */; };
+		5535C2241B457383006917BB /* DTScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C2231B457383006917BB /* DTScannerViewController.m */; };
+		5535C2271B45739B006917BB /* DTGeneratorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C2261B45739B006917BB /* DTGeneratorViewController.m */; };
+		5535C2361B457468006917BB /* AVCaptureDevice+Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C22C1B457468006917BB /* AVCaptureDevice+Device.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5535C2371B457468006917BB /* DTBarcodeScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C22E1B457468006917BB /* DTBarcodeScannerController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5535C2391B457468006917BB /* DTFadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C2311B457468006917BB /* DTFadeView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5535C23A1B457468006917BB /* DTLocalizableString.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C2331B457468006917BB /* DTLocalizableString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5535C23B1B457468006917BB /* UIImage+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5535C2351B457468006917BB /* UIImage+Bundle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		556CBE751B456BC3001A912C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE741B456BC3001A912C /* main.m */; };
 		556CBE781B456BC3001A912C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE771B456BC3001A912C /* AppDelegate.m */; };
-		556CBE7B1B456BC3001A912C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE7A1B456BC3001A912C /* ViewController.m */; };
 		556CBE7E1B456BC3001A912C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE7C1B456BC3001A912C /* Main.storyboard */; };
 		556CBE801B456BC4001A912C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE7F1B456BC4001A912C /* Images.xcassets */; };
-		556CBE831B456BC4001A912C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE811B456BC4001A912C /* LaunchScreen.xib */; };
 		556CBE8F1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */; };
+		5589AB801BDA6C94006D0D17 /* DTQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +35,34 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5535C21E1B456E36006917BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		5535C2221B457383006917BB /* DTScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTScannerViewController.h; sourceTree = "<group>"; };
+		5535C2231B457383006917BB /* DTScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTScannerViewController.m; sourceTree = "<group>"; };
+		5535C2251B45739B006917BB /* DTGeneratorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTGeneratorViewController.h; sourceTree = "<group>"; };
+		5535C2261B45739B006917BB /* DTGeneratorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTGeneratorViewController.m; sourceTree = "<group>"; };
+		5535C22B1B457468006917BB /* AVCaptureDevice+Device.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVCaptureDevice+Device.h"; sourceTree = "<group>"; };
+		5535C22C1B457468006917BB /* AVCaptureDevice+Device.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVCaptureDevice+Device.m"; sourceTree = "<group>"; };
+		5535C22D1B457468006917BB /* DTBarcodeScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTBarcodeScannerController.h; sourceTree = "<group>"; };
+		5535C22E1B457468006917BB /* DTBarcodeScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTBarcodeScannerController.m; sourceTree = "<group>"; };
+		5535C2301B457468006917BB /* DTFadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTFadeView.h; sourceTree = "<group>"; };
+		5535C2311B457468006917BB /* DTFadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTFadeView.m; sourceTree = "<group>"; };
+		5535C2321B457468006917BB /* DTLocalizableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTLocalizableString.h; sourceTree = "<group>"; };
+		5535C2331B457468006917BB /* DTLocalizableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTLocalizableString.m; sourceTree = "<group>"; };
+		5535C2341B457468006917BB /* UIImage+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Bundle.h"; sourceTree = "<group>"; };
+		5535C2351B457468006917BB /* UIImage+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Bundle.m"; sourceTree = "<group>"; };
 		556CBE6F1B456BC3001A912C /* Barcode Scanner & Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barcode Scanner & Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		556CBE731B456BC3001A912C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556CBE741B456BC3001A912C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		556CBE761B456BC3001A912C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		556CBE771B456BC3001A912C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		556CBE791B456BC3001A912C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		556CBE7A1B456BC3001A912C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		556CBE7D1B456BC3001A912C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		556CBE7F1B456BC4001A912C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		556CBE821B456BC4001A912C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		556CBE881B456BC4001A912C /* Barcode Scanner & GeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Barcode Scanner & GeneratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		556CBE8D1B456BC4001A912C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Barcode_Scanner___GeneratorTests.m"; sourceTree = "<group>"; };
+		5589AB7E1BDA6C94006D0D17 /* DTQRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTQRCodeGenerator.h; path = DTQRCodeGenerator/DTQRCodeGenerator.h; sourceTree = "<group>"; };
+		5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTQRCodeGenerator.m; path = DTQRCodeGenerator/DTQRCodeGenerator.m; sourceTree = "<group>"; };
+		5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DTBarcodeScanner.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +83,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5535C22A1B457468006917BB /* DTBarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				5535C22B1B457468006917BB /* AVCaptureDevice+Device.h */,
+				5535C22C1B457468006917BB /* AVCaptureDevice+Device.m */,
+				5535C22D1B457468006917BB /* DTBarcodeScannerController.h */,
+				5535C22E1B457468006917BB /* DTBarcodeScannerController.m */,
+				5535C2301B457468006917BB /* DTFadeView.h */,
+				5535C2311B457468006917BB /* DTFadeView.m */,
+				5535C2321B457468006917BB /* DTLocalizableString.h */,
+				5535C2331B457468006917BB /* DTLocalizableString.m */,
+				5535C2341B457468006917BB /* UIImage+Bundle.h */,
+				5535C2351B457468006917BB /* UIImage+Bundle.m */,
+				5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */,
+			);
+			path = DTBarcodeScanner;
+			sourceTree = "<group>";
+		};
 		556CBE661B456BC3001A912C = {
 			isa = PBXGroup;
 			children = (
@@ -81,13 +122,17 @@
 		556CBE711B456BC3001A912C /* Barcode Scanner & Generator */ = {
 			isa = PBXGroup;
 			children = (
+				5589AB7D1BDA6C33006D0D17 /* DTQRCodeGenerator */,
+				5535C22A1B457468006917BB /* DTBarcodeScanner */,
 				556CBE761B456BC3001A912C /* AppDelegate.h */,
 				556CBE771B456BC3001A912C /* AppDelegate.m */,
-				556CBE791B456BC3001A912C /* ViewController.h */,
-				556CBE7A1B456BC3001A912C /* ViewController.m */,
+				5535C2221B457383006917BB /* DTScannerViewController.h */,
+				5535C2231B457383006917BB /* DTScannerViewController.m */,
+				5535C2251B45739B006917BB /* DTGeneratorViewController.h */,
+				5535C2261B45739B006917BB /* DTGeneratorViewController.m */,
 				556CBE7C1B456BC3001A912C /* Main.storyboard */,
 				556CBE7F1B456BC4001A912C /* Images.xcassets */,
-				556CBE811B456BC4001A912C /* LaunchScreen.xib */,
+				5535C21E1B456E36006917BB /* Launch Screen.xib */,
 				556CBE721B456BC3001A912C /* Supporting Files */,
 			);
 			path = "Barcode Scanner & Generator";
@@ -117,6 +162,15 @@
 				556CBE8D1B456BC4001A912C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5589AB7D1BDA6C33006D0D17 /* DTQRCodeGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				5589AB7E1BDA6C94006D0D17 /* DTQRCodeGenerator.h */,
+				5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */,
+			);
+			name = DTQRCodeGenerator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +217,7 @@
 		556CBE671B456BC3001A912C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DT;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = Darktt;
 				TargetAttributes = {
@@ -200,8 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				556CBE7E1B456BC3001A912C /* Main.storyboard in Resources */,
-				556CBE831B456BC4001A912C /* LaunchScreen.xib in Resources */,
+				5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */,
 				556CBE801B456BC4001A912C /* Images.xcassets in Resources */,
+				5535C21F1B456E36006917BB /* Launch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				556CBE7B1B456BC3001A912C /* ViewController.m in Sources */,
+				5535C2391B457468006917BB /* DTFadeView.m in Sources */,
+				5535C23A1B457468006917BB /* DTLocalizableString.m in Sources */,
+				5535C2361B457468006917BB /* AVCaptureDevice+Device.m in Sources */,
+				5535C2271B45739B006917BB /* DTGeneratorViewController.m in Sources */,
 				556CBE781B456BC3001A912C /* AppDelegate.m in Sources */,
+				5589AB801BDA6C94006D0D17 /* DTQRCodeGenerator.m in Sources */,
+				5535C23B1B457468006917BB /* UIImage+Bundle.m in Sources */,
+				5535C2241B457383006917BB /* DTScannerViewController.m in Sources */,
 				556CBE751B456BC3001A912C /* main.m in Sources */,
+				5535C2371B457468006917BB /* DTBarcodeScannerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +313,6 @@
 				556CBE7D1B456BC3001A912C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		556CBE811B456BC4001A912C /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				556CBE821B456BC4001A912C /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -350,8 +405,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Barcode Scanner & Generator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -360,8 +417,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Barcode Scanner & Generator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -418,6 +477,7 @@
 				556CBE941B456BC4001A912C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		556CBE951B456BC4001A912C /* Build configuration list for PBXNativeTarget "Barcode Scanner & GeneratorTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +486,7 @@
 				556CBE971B456BC4001A912C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
