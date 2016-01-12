@@ -21,7 +21,7 @@
 		556CBE801B456BC4001A912C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE7F1B456BC4001A912C /* Images.xcassets */; };
 		556CBE8F1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */; };
 		5589AB801BDA6C94006D0D17 /* DTQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */; settings = {ASSET_TAGS = (); }; };
+		5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +86,8 @@
 		5535C22A1B457468006917BB /* DTBarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
+				5535C2341B457468006917BB /* UIImage+Bundle.h */,
+				5535C2351B457468006917BB /* UIImage+Bundle.m */,
 				5535C22B1B457468006917BB /* AVCaptureDevice+Device.h */,
 				5535C22C1B457468006917BB /* AVCaptureDevice+Device.m */,
 				5535C22D1B457468006917BB /* DTBarcodeScannerController.h */,
@@ -94,8 +96,6 @@
 				5535C2311B457468006917BB /* DTFadeView.m */,
 				5535C2321B457468006917BB /* DTLocalizableString.h */,
 				5535C2331B457468006917BB /* DTLocalizableString.m */,
-				5535C2341B457468006917BB /* UIImage+Bundle.h */,
-				5535C2351B457468006917BB /* UIImage+Bundle.m */,
 				5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */,
 			);
 			path = DTBarcodeScanner;

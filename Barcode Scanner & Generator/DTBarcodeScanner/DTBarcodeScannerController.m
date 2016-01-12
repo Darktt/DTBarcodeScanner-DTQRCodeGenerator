@@ -43,7 +43,8 @@
 {
     [super awakeFromNib];
     
-    [self setBackgroundColor:[UIColor blackColor]];
+    UIColor *backgroundColor = [UIColor blackColor];
+    [self setBackgroundColor:backgroundColor];
     [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 }
 
