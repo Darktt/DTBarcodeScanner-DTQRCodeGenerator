@@ -10,12 +10,16 @@
 #import "DTQRCodeGenerator.h"
 
 @interface DTGeneratorViewController ()
+{
+    DTQRCodeCorrectionLevel _correctionLevel;
+}
 
 @property (weak) IBOutlet UITextField *textField;
 @property (weak) IBOutlet UIImageView *imageView;
 
 - (IBAction)endEditing:(id)sender;
 - (IBAction)generatorAction:(id)sender;
+- (IBAction)changeImageSizeAction:(id)sender;
 
 @end
 
@@ -31,7 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    _correctionLevel = DTQRCodeCorrectionLevelHeigh;
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,16 +52,41 @@
 - (void)generatorAction:(id)sender
 {
     NSString *inputString = self.textField.text;
-    DTQRCodeCorrectionLevel correctionLevel = DTQRCodeCorrectionLevelHeigh;
     
     CGSize preferredSize = CGSizeMake(300.0f, 300.0f);
     
-    DTQRCodeGenerator *generator = [DTQRCodeGenerator QRCodeGeneratorWithString:inputString correctionLevel:correctionLevel];
+    DTQRCodeGenerator *generator = [DTQRCodeGenerator QRCodeGeneratorWithString:inputString correctionLevel:_correctionLevel];
     [generator setPerferredSize:preferredSize];
     
     UIImage *image = [generator outputImage];
     
     [self.imageView setImage:image];
+}
+
+- (void)changeImageSizeAction:(UISegmentedControl *)sender
+{
+    NSInteger index = sender.selectedSegmentIndex;
+    
+    switch (index) {
+        case 0:
+            _correctionLevel = DTQRCodeCorrectionLevelHeigh;
+            break;
+            
+        case 1:
+            _correctionLevel = DTQRCodeCorrectionLevelMediumHeigh;
+            break;
+            
+        case 2:
+            _correctionLevel = DTQRCodeCorrectionLevelLow;
+            break;
+            
+        default:
+            break;
+    }
+    
+    if (self.imageView.image != nil) {
+        [self generatorAction:nil];
+    }
 }
 
 @end
