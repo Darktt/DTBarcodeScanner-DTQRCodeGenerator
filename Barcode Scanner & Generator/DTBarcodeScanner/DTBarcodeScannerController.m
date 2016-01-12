@@ -373,10 +373,6 @@ NSInteger const kFlashButtonTag = 1000;
 {
     UIButton *flashButton = (UIButton *)[self.view viewWithTag:kFlashButtonTag];
     [flashButton setHidden:!_torchAvailable];
-    
-//    BOOL hasBackCamera = [AVCaptureDevice hasDeviceWithPosition:AVCaptureDevicePositionBack];
-    
-//    [self.bottomPanelView setSwitchCameraButtonHidden:!hasBackCamera];
 }
 
 #pragma mark #UI
