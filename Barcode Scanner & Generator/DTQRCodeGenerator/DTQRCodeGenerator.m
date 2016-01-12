@@ -36,7 +36,7 @@
 
 - (instancetype)initWithString:(NSString *)string correctionLevel:(DTQRCodeCorrectionLevel)level
 {
-    NSData *inputData = [string dataUsingEncoding:NSISOLatin1StringEncoding];
+    NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
     
     return [self initWithData:inputData correctionLevel:level];
 }
