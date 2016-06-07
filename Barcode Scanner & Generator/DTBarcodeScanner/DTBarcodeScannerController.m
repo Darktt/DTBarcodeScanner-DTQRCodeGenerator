@@ -2,7 +2,7 @@
 //  DTBarcodeScannerController.m
 //
 //  Created by Darktt on 15/6/9.
-//  Copyright (c) 2015 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 #import "DTBarcodeScannerController.h"
@@ -43,8 +43,7 @@
 {
     [super awakeFromNib];
     
-    UIColor *backgroundColor = [UIColor blackColor];
-    [self setBackgroundColor:backgroundColor];
+    [self setBackgroundColor:[UIColor blackColor]];
     [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
 }
 
@@ -326,8 +325,7 @@ NSInteger const kFlashButtonTag = 1000;
             return;
         }
         
-        NSString *message = @"I do not have permission to use Camera, please change privacy settings";
-        NSLog(@"%s: \n %@", __func__, message);
+        [self showCameraDeviceNotAuthorizedAlert];
     };
     
     [AVCaptureDevice requestAccessForMediaType:mediaType completionHandler:completionHandler];
@@ -373,6 +371,10 @@ NSInteger const kFlashButtonTag = 1000;
 {
     UIButton *flashButton = (UIButton *)[self.view viewWithTag:kFlashButtonTag];
     [flashButton setHidden:!_torchAvailable];
+    
+//    BOOL hasBackCamera = [AVCaptureDevice hasDeviceWithPosition:AVCaptureDevicePositionBack];
+    
+//    [self.bottomPanelView setSwitchCameraButtonHidden:!hasBackCamera];
 }
 
 #pragma mark #UI

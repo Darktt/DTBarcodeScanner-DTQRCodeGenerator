@@ -2,7 +2,7 @@
 //  DTBarcodeScannerController.h
 //
 //  Created by Darktt on 15/6/9.
-//  Copyright (c) 2015 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 @import UIKit;
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
     -barcodeScanner:didScanedMetadataObjects:
  
  */
-+ (instancetype)barcodeScannerWithMetadataObjectTypes:(NSArray<NSString *> *)metadataObjectTypes;
++ (instancetype)barcodeScannerWithMetadataObjectTypes:(NSArray<NSString *> *)metadataObjectTypes NS_SWIFT_UNAVAILABLE("Unavalilable");
 
 /*!
  @method initWithMetadataObjectTypes:

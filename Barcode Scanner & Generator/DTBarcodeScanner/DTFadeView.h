@@ -2,7 +2,7 @@
 //  DTFadeView.h
 //
 //  Created by Darktt on 15/6/11.
-//  Copyright (c) 2015年 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 @import UIKit;
@@ -23,19 +23,19 @@ typedef void (^DTFadFinishBlock) (DTFadeView *view, BOOL finished);
 + (instancetype)fadeViewWithFrame:(CGRect)frame;
 
 /** Get indtance when exist in super view. */
-+ (nullable DTFadeView *)fadeViewInView:(__kindof UIView *)superView withTag:(NSInteger)tag;
++ (nullable DTFadeView *)fadeViewInView:(__kindof UIView *)superView withTag:(NSInteger)tag NS_SWIFT_NAME(fadeView(inView:withTag:));
 
 /** Fade in then dismiss. */
 - (void)fadeIn;
 
 /** Fade in with custom handler */
-- (void)fadeInWithFinishHandler:(nullable DTFadFinishBlock)finishHandler;
+- (void)fadeInWithFinishHandler:(nullable DTFadFinishBlock)finishHandler NS_SWIFT_NAME(fadeIn(withFinishHandler:));
 
 /** Fade out then dismiss. */
 - (void)fadeOut;
 
 /** Fade out with custom handler */
-- (void)fadeOutWithFinishHandler:(nullable DTFadFinishBlock)finishHandler;
+- (void)fadeOutWithFinishHandler:(nullable DTFadFinishBlock)finishHandler NS_SWIFT_NAME(fadeOut(withFinishHandler:));
 
 @end
 NS_ASSUME_NONNULL_END

@@ -2,7 +2,7 @@
 //  DTFadeView.m
 //
 //  Created by Darktt on 15/6/11.
-//  Copyright (c) 2015年 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 #import "DTFadeView.h"

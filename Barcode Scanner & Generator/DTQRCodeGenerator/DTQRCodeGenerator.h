@@ -2,7 +2,7 @@
 //  DTQRCodeGenerator.h
 //
 //  Created by Darktt on 15/6/9.
-//  Copyright (c) 2015 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 @import UIKit;
@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)QRCodeGeneratorWithString:(NSString *)string correctionLevel:(DTQRCodeCorrectionLevel)level;
 
-/** data The data need convert using the NSISOLatin1StringEncoding string. */
+/** @note The data need convert using the NSISOLatin1StringEncoding string. */
 + (instancetype)QRCodeGeneratorWithData:(NSData *)data correctionLevel:(DTQRCodeCorrectionLevel)level;
 
 - (instancetype)initWithString:(NSString *)string correctionLevel:(DTQRCodeCorrectionLevel)level;
@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** data The data need convert using the NSISOLatin1StringEncoding string. */
 - (instancetype)initWithData:(NSData *)data correctionLevel:(DTQRCodeCorrectionLevel)level;
 
-- (void)setForegroundColor:(UIColor *)foregroundcolor backgeoundColor:(UIColor *)backgroundColor;
+- (void)setForegroundColor:(UIColor *)foregroundcolor backgeoundColor:(UIColor *)backgroundColor NS_SWIFT_NAME(setColor(foregroundColor:backgroundColor:));
 
 - (UIImage *)outputImage;
 

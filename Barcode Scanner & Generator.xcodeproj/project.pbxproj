@@ -19,20 +19,9 @@
 		556CBE781B456BC3001A912C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE771B456BC3001A912C /* AppDelegate.m */; };
 		556CBE7E1B456BC3001A912C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE7C1B456BC3001A912C /* Main.storyboard */; };
 		556CBE801B456BC4001A912C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 556CBE7F1B456BC4001A912C /* Images.xcassets */; };
-		556CBE8F1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */; };
 		5589AB801BDA6C94006D0D17 /* DTQRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		556CBE891B456BC4001A912C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 556CBE671B456BC3001A912C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 556CBE6E1B456BC3001A912C;
-			remoteInfo = "Barcode Scanner & Generator";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5535C21E1B456E36006917BB /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -57,9 +46,6 @@
 		556CBE771B456BC3001A912C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		556CBE7D1B456BC3001A912C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		556CBE7F1B456BC4001A912C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		556CBE881B456BC4001A912C /* Barcode Scanner & GeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Barcode Scanner & GeneratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		556CBE8D1B456BC4001A912C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Barcode_Scanner___GeneratorTests.m"; sourceTree = "<group>"; };
 		5589AB7E1BDA6C94006D0D17 /* DTQRCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DTQRCodeGenerator.h; path = DTQRCodeGenerator/DTQRCodeGenerator.h; sourceTree = "<group>"; };
 		5589AB7F1BDA6C94006D0D17 /* DTQRCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DTQRCodeGenerator.m; path = DTQRCodeGenerator/DTQRCodeGenerator.m; sourceTree = "<group>"; };
 		5589AB811BDA6CEE006D0D17 /* DTBarcodeScanner.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DTBarcodeScanner.bundle; sourceTree = "<group>"; };
@@ -67,13 +53,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		556CBE6C1B456BC3001A912C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		556CBE851B456BC4001A912C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -105,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				556CBE711B456BC3001A912C /* Barcode Scanner & Generator */,
-				556CBE8B1B456BC4001A912C /* Barcode Scanner & GeneratorTests */,
 				556CBE701B456BC3001A912C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				556CBE6F1B456BC3001A912C /* Barcode Scanner & Generator.app */,
-				556CBE881B456BC4001A912C /* Barcode Scanner & GeneratorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,23 +120,6 @@
 			children = (
 				556CBE731B456BC3001A912C /* Info.plist */,
 				556CBE741B456BC3001A912C /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		556CBE8B1B456BC4001A912C /* Barcode Scanner & GeneratorTests */ = {
-			isa = PBXGroup;
-			children = (
-				556CBE8E1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m */,
-				556CBE8C1B456BC4001A912C /* Supporting Files */,
-			);
-			path = "Barcode Scanner & GeneratorTests";
-			sourceTree = "<group>";
-		};
-		556CBE8C1B456BC4001A912C /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				556CBE8D1B456BC4001A912C /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -193,24 +153,6 @@
 			productReference = 556CBE6F1B456BC3001A912C /* Barcode Scanner & Generator.app */;
 			productType = "com.apple.product-type.application";
 		};
-		556CBE871B456BC4001A912C /* Barcode Scanner & GeneratorTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 556CBE951B456BC4001A912C /* Build configuration list for PBXNativeTarget "Barcode Scanner & GeneratorTests" */;
-			buildPhases = (
-				556CBE841B456BC4001A912C /* Sources */,
-				556CBE851B456BC4001A912C /* Frameworks */,
-				556CBE861B456BC4001A912C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				556CBE8A1B456BC4001A912C /* PBXTargetDependency */,
-			);
-			name = "Barcode Scanner & GeneratorTests";
-			productName = "Barcode Scanner & GeneratorTests";
-			productReference = 556CBE881B456BC4001A912C /* Barcode Scanner & GeneratorTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -218,15 +160,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DT;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Darktt;
 				TargetAttributes = {
 					556CBE6E1B456BC3001A912C = {
 						CreatedOnToolsVersion = 6.4;
-					};
-					556CBE871B456BC4001A912C = {
-						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 556CBE6E1B456BC3001A912C;
 					};
 				};
 			};
@@ -244,7 +182,6 @@
 			projectRoot = "";
 			targets = (
 				556CBE6E1B456BC3001A912C /* Barcode Scanner & Generator */,
-				556CBE871B456BC4001A912C /* Barcode Scanner & GeneratorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -258,13 +195,6 @@
 				5589AB821BDA6CEE006D0D17 /* DTBarcodeScanner.bundle in Resources */,
 				556CBE801B456BC4001A912C /* Images.xcassets in Resources */,
 				5535C21F1B456E36006917BB /* Launch Screen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		556CBE861B456BC4001A912C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,23 +218,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		556CBE841B456BC4001A912C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				556CBE8F1B456BC4001A912C /* Barcode_Scanner___GeneratorTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		556CBE8A1B456BC4001A912C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 556CBE6E1B456BC3001A912C /* Barcode Scanner & Generator */;
-			targetProxy = 556CBE891B456BC4001A912C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		556CBE7C1B456BC3001A912C /* Main.storyboard */ = {
@@ -339,6 +253,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -407,6 +322,7 @@
 				INFOPLIST_FILE = "Barcode Scanner & Generator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.darktt.barcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,42 +335,9 @@
 				INFOPLIST_FILE = "Barcode Scanner & Generator/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.darktt.barcode;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		556CBE961B456BC4001A912C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Barcode Scanner & GeneratorTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barcode Scanner & Generator.app/Barcode Scanner & Generator";
-			};
-			name = Debug;
-		};
-		556CBE971B456BC4001A912C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Barcode Scanner & GeneratorTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Barcode Scanner & Generator.app/Barcode Scanner & Generator";
 			};
 			name = Release;
 		};
@@ -475,15 +358,6 @@
 			buildConfigurations = (
 				556CBE931B456BC4001A912C /* Debug */,
 				556CBE941B456BC4001A912C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		556CBE951B456BC4001A912C /* Build configuration list for PBXNativeTarget "Barcode Scanner & GeneratorTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				556CBE961B456BC4001A912C /* Debug */,
-				556CBE971B456BC4001A912C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

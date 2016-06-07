@@ -3,12 +3,12 @@
 //  CueME
 //
 //  Created by Darktt on 15/6/9.
-//  Copyright (c) 2015 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
-@import CoreImage;
-
 #import "DTQRCodeGenerator.h"
+
+@import CoreImage;
 
 @interface DTQRCodeGenerator ()
 {
@@ -36,7 +36,7 @@
 
 - (instancetype)initWithString:(NSString *)string correctionLevel:(DTQRCodeCorrectionLevel)level
 {
-    NSData *inputData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *inputData = [string dataUsingEncoding:NSISOLatin1StringEncoding];
     
     return [self initWithData:inputData correctionLevel:level];
 }

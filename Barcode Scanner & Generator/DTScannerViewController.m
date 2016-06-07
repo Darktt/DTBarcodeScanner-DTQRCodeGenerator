@@ -10,7 +10,9 @@
 
 #import "DTBarcodeScannerController.h"
 
-@interface DTScannerViewController () <DTBarcodeScannerControllerDelegate>
+@interface DTScannerViewController () <UIViewControllerPreviewingDelegate, DTBarcodeScannerControllerDelegate>
+
+@property (weak) IBOutlet UIButton *scannerButton;
 
 - (IBAction)lanuchScannerAction:(id)sender;
 
@@ -22,6 +24,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    if (![self respondsToSelector:@selector(registerForPreviewingWithDelegate:sourceView:)]) {
+        return;
+    }
+    
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.scannerButton];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +48,23 @@
     [scanner setDelegate:self];
     
     [self presentViewController:scanner animated:YES completion:nil];
+}
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location
+{
+    NSArray<NSString *> *types = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeInterleaved2of5Code, AVMetadataObjectTypeITF14Code, AVMetadataObjectTypeDataMatrixCode];
+    
+    DTBarcodeScannerController *scanner = [DTBarcodeScannerController barcodeScannerWithMetadataObjectTypes:types];
+    [scanner setDelegate:self];
+    
+    return scanner;
+}
+
+- (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit
+{
+    [self presentViewController:viewControllerToCommit animated:YES completion:nil];
 }
 
 #pragma mark - DTBarcodeScannerControllerDelegate

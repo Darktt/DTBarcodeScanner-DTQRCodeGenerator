@@ -2,7 +2,7 @@
 //  AVCaptureDevice+Device.m
 //
 //  Created by Darktt on 15/6/10.
-//  Copyright (c) 2015 Darktt Personal Company. All rights reserved.
+//  Copyright © 2015 Darktt Personal Company. All rights reserved.
 //
 
 @import AVFoundation;
