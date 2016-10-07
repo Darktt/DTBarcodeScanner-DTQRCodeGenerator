@@ -45,6 +45,7 @@
     NSArray<NSString *> *types = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeInterleaved2of5Code, AVMetadataObjectTypeITF14Code, AVMetadataObjectTypeDataMatrixCode];
     
     DTBarcodeScannerController *scanner = [DTBarcodeScannerController barcodeScannerWithMetadataObjectTypes:types];
+    [scanner setTorchMode:AVCaptureTorchModeOff];
     [scanner setDelegate:self];
     
     [self presentViewController:scanner animated:YES completion:nil];

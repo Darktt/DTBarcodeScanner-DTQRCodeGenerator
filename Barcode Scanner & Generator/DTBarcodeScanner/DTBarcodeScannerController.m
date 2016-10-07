@@ -76,7 +76,7 @@
 
 @end
 
-static NSString *const kBundleName = @"DTBarcodeScannerResource.bundle";
+static NSString *const kBundleName = @"DTBarcodeScanner.bundle";
 static UIImage *kFlashOffImage = nil;
 static UIImage *kFlashOnImage = nil;
 
@@ -540,7 +540,23 @@ NSInteger const kFlashButtonTag = 1000;
     void (^settingActionHandler) (UIAlertAction *action) = ^(UIAlertAction *action) {
         NSURL *openURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
         
-        [[UIApplication sharedApplication] openURL:openURL];
+        UIApplication *application = [UIApplication sharedApplication];
+        
+        if ([application respondsToSelector:@selector(openURL:options:completionHandler:)]) {
+            
+            NSDictionary<NSString *, id> *options = @{UIApplicationOpenURLOptionUniversalLinksOnly: @(YES)};
+            
+            [application openURL:openURL options:options completionHandler:nil];
+        } else {
+            
+            // Remove deprecated message.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+            
+            [application openURL:openURL];
+            
+#pragma clang diagnostic pop
+        }
     };
     
     UIAlertAction *settingAction = [UIAlertAction actionWithTitle:settingActionTitle style:UIAlertActionStyleDefault handler:settingActionHandler];
