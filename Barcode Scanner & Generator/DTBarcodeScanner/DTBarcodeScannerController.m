@@ -61,6 +61,19 @@
 
 - (AVCaptureVideoPreviewLayer *)previewLayer
 {
+    if (![NSThread isMainThread]) {
+        
+        dispatch_queue_t queue = dispatch_get_main_queue();
+        AVCaptureVideoPreviewLayer *__block previewLayer = nil;
+        
+        dispatch_sync(queue, ^{
+            
+            previewLayer = (AVCaptureVideoPreviewLayer *)self.layer;
+        });
+        
+        return previewLayer;
+    }
+    
     return (AVCaptureVideoPreviewLayer *)self.layer;
 }
 
@@ -102,6 +115,7 @@ NSInteger const kFlashButtonTag = 1000;
 + (instancetype)barcodeScannerWithMetadataObjectTypes:(NSArray *)metadataObjectTypes
 {
     DTBarcodeScannerController *barcodeScanner = [[DTBarcodeScannerController alloc] initWithMetadataObjectTypes:metadataObjectTypes];
+    [barcodeScanner setModalPresentationStyle:UIModalPresentationFullScreen];
     
     return [barcodeScanner autorelease];
 }
@@ -172,7 +186,15 @@ NSInteger const kFlashButtonTag = 1000;
     [self setView:perviewView];
     
     [self setupCameraPreview];
-    [self setupUI];
+    
+    if (@available(iOS 11.0, *)) {
+        
+        [self setupUIWithAutolayout];
+    } else {
+        
+        // Fallback on earlier version
+        [self setupUI];
+    }
 }
 
 #pragma mark #Status Bar
@@ -239,6 +261,19 @@ NSInteger const kFlashButtonTag = 1000;
 
 - (DTCameraPreviewView *)previewView
 {
+    if (![NSThread isMainThread]) {
+        
+        dispatch_queue_t queue = dispatch_get_main_queue();
+        DTCameraPreviewView *__block previewView = nil;
+        
+        dispatch_sync(queue, ^{
+            
+            previewView = (DTCameraPreviewView *)self.view;
+        });
+        
+        return previewView;
+    }
+    
     return (DTCameraPreviewView *)self.view;
 }
 
@@ -480,6 +515,127 @@ NSInteger const kFlashButtonTag = 1000;
     
     [self.view addSubview:bottomCoverView];
     [bottomCoverView release];
+}
+
+- (void)setupUIWithAutolayout API_AVAILABLE(ios(11.0),tvos(11.0))
+{
+    UILayoutGuide *safeAreaLayoutGuide = self.view.safeAreaLayoutGuide;
+    
+    /// Status Bar Cover
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    UIVisualEffectView *statusCoverView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [statusCoverView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.view addSubview:statusCoverView];
+    [statusCoverView release];
+    
+    /// Setup status bar conver constraints.
+    {
+        NSLayoutConstraint *topConstraint = [statusCoverView.topAnchor constraintEqualToAnchor:self.view.topAnchor];
+        NSLayoutConstraint *leftConstraint = [statusCoverView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
+        NSLayoutConstraint *rightConstraint = [self.view.trailingAnchor constraintEqualToAnchor:statusCoverView.trailingAnchor];
+        NSLayoutConstraint *bottomConstraint = [safeAreaLayoutGuide.topAnchor constraintEqualToAnchor:statusCoverView.bottomAnchor];
+        
+        [self.view addConstraints:@[topConstraint, leftConstraint, rightConstraint, bottomConstraint]];
+    }
+    
+    /// Flash Button
+    if (kFlashOffImage == nil) {
+        UIImage *flashOffImage = [UIImage imageNamed:@"flash" inBundleName:kBundleName];
+        
+        kFlashOffImage = [flashOffImage retain];
+    }
+    
+    if (kFlashOnImage == nil) {
+        UIImage *flashImage = [UIImage imageNamed:@"flash_on" inBundleName:kBundleName];
+        
+        kFlashOnImage = [flashImage retain];
+    }
+    
+    UIButton *flashButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [flashButton setImage:kFlashOffImage forState:UIControlStateNormal];
+    [flashButton setImage:kFlashOnImage forState:UIControlStateSelected];
+    [flashButton addTarget:self action:@selector(switchFlash:) forControlEvents:UIControlEventTouchUpInside];
+    [flashButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.view addSubview:flashButton];
+    
+    /// Setup flash button constrains.
+    {
+        NSLayoutConstraint *topConstrain = [flashButton.topAnchor constraintEqualToAnchor:safeAreaLayoutGuide.topAnchor constant:10.0f];
+        NSLayoutConstraint *rightConstrain = [safeAreaLayoutGuide.trailingAnchor constraintEqualToAnchor:flashButton.trailingAnchor constant:10.0f];
+        NSLayoutConstraint *widthConstrain = [flashButton.widthAnchor constraintEqualToConstant:44.0f];
+        NSLayoutConstraint *heightConstrain = [flashButton.heightAnchor constraintEqualToAnchor:flashButton.widthAnchor multiplier:1.0];
+        
+        [self.view addConstraints:@[topConstrain, rightConstrain, widthConstrain, heightConstrain]];
+    }
+    
+    /// Cancel Button
+    NSString *cancelTitle = DTLocalizableString(@"Cancel", @"");
+    
+    UIFont *font = [UIFont systemFontOfSize:20.0f];
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+    NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:cancelTitle attributes:attributes];
+    
+    UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [cancelButton setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+    [cancelButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [attributedTitle release];
+    
+    UIVibrancyEffect *vibrancyEffect = [UIVibrancyEffect effectForBlurEffect:blurEffect];
+    UIVisualEffectView *vibrancyEffectView = [[UIVisualEffectView alloc] initWithEffect:vibrancyEffect];
+    [vibrancyEffectView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [vibrancyEffectView.contentView addSubview:cancelButton];
+    
+    {
+        NSLayoutConstraint *leftConstraint = [cancelButton.leadingAnchor constraintEqualToAnchor:vibrancyEffectView.leadingAnchor constant:10.0];
+        NSLayoutConstraint *centerYConstraint = [cancelButton.centerYAnchor constraintEqualToAnchor:vibrancyEffectView.centerYAnchor];
+        
+        [vibrancyEffectView addConstraints:@[leftConstraint, centerYConstraint]];
+    }
+    
+    UIVisualEffectView *bottomCoverView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [bottomCoverView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [bottomCoverView.contentView addSubview:vibrancyEffectView];
+    [vibrancyEffectView release];
+    
+    {
+        NSLayoutConstraint *topConstraint = [vibrancyEffectView.topAnchor constraintEqualToAnchor:bottomCoverView.topAnchor];
+        NSLayoutConstraint *leftConstraint = [vibrancyEffectView.leadingAnchor constraintEqualToAnchor:bottomCoverView.leadingAnchor];
+        NSLayoutConstraint *rightConstraint = [bottomCoverView.trailingAnchor constraintEqualToAnchor:vibrancyEffectView.trailingAnchor];
+        NSLayoutConstraint *bottomConstraint = [bottomCoverView.bottomAnchor constraintEqualToAnchor:vibrancyEffectView.bottomAnchor];
+        
+        [bottomCoverView addConstraints:@[topConstraint, leftConstraint, rightConstraint, bottomConstraint]];
+    }
+    
+    [self.view addSubview:bottomCoverView];
+    [bottomCoverView release];
+    
+    {
+        NSLayoutConstraint *leftConstraint = [bottomCoverView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
+        NSLayoutConstraint *rightConstraint = [self.view.trailingAnchor constraintEqualToAnchor:bottomCoverView.trailingAnchor];
+        NSLayoutConstraint *bottomConstraint = [safeAreaLayoutGuide.bottomAnchor constraintEqualToAnchor:bottomCoverView.bottomAnchor];
+        NSLayoutConstraint *heightConstraint = [bottomCoverView.heightAnchor constraintEqualToConstant:64.0f];
+        
+        [self.view addConstraints:@[leftConstraint, rightConstraint, bottomConstraint, heightConstraint]];
+    }
+    
+    /// Safe area cover view.
+    UIVisualEffectView *safeAreaCoverView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    [safeAreaCoverView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.view addSubview:safeAreaCoverView];
+    
+    {
+        NSLayoutConstraint *topConstraint = [safeAreaCoverView.topAnchor constraintEqualToAnchor:safeAreaLayoutGuide.bottomAnchor];
+        NSLayoutConstraint *leftConstraint = [safeAreaCoverView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor];
+        NSLayoutConstraint *rightConstraint = [self.view.trailingAnchor constraintEqualToAnchor:safeAreaCoverView.trailingAnchor];
+        NSLayoutConstraint *bottomConstraint = [self.view.bottomAnchor constraintEqualToAnchor:safeAreaCoverView.bottomAnchor];
+        
+        [self.view addConstraints:@[topConstraint, leftConstraint, rightConstraint, bottomConstraint]];
+    }
 }
 
 - (DTFadeView *)setupFadeViewWithFrame:(CGRect)frame
